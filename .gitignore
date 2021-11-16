@@ -1,0 +1,9 @@
+
+*.swp
+.DS_Store
+.nyc_output/
+.vscode/
+build/
+coverage/
+node_modules/
+yarn-error.log

@@ -1,0 +1,46 @@
+{
+  "name": "@earthstar-project/peergarden",
+  "version": "1.0.0",
+  "description": "Tools for managing p2p connections",
+  "author": "Cinnamon <cinnamon_npm@fastmail.com>",
+  "homepage": "https://github.com/earthstar-project/peergarden",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/earthstar-project/peergarden.git"
+  },
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "scripts": {
+    "clean": "rm -rf coverage .nyc_output build/*.js*",
+    "serve": "node build/transport-http-server.js",
+    "build": "node esbuild-client.js && node esbuild-server.js",
+    "build-tsc": "tsc --noEmit",
+    "start-server": "VERBOSE=true node build/http-server-demo.js",
+    "start-client": "VERBOSE=true node build/http-client-demo.js",
+    "start-local-demo": "VERBOSE=true node build/local-demo.js",
+    "main": "VERBOSE=true node build/main.js",
+    "test": "tap -Rspecy --jobs=1 build/test/*.test.js",
+    "test-mini-rpc": "tap -Rspecy --jobs=1 build/test/mini-rpc.test.js",
+    "test-coverage": "npm test -- --coverage-report=lcov",
+    "prepublishOnly": "npm run clean && npm run build"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.7",
+    "@types/tap": "^15.0.5",
+    "browser-run": "^10.1.0",
+    "esbuild": "^0.13.13",
+    "node-static": "^0.7.11",
+    "tap": "^14.11.0",
+    "typescript": "^4.4.4"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "concurrency-friends": "^5.2.0",
+    "express": "^4.17.1",
+    "express-sse": "^0.5.3",
+    "immer": "^9.0.6",
+    "zod": "^3.11.6"
+  }
+}

@@ -1,0 +1,12 @@
+
+*.png
+*.pyc
+.DS_Store
+.github/
+.nyc_output/
+.vscode/
+build/test/
+coverage/
+src/
+tsconfig.json
+yarn-error.log
