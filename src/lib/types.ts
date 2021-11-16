@@ -7,6 +7,7 @@ export type StorageId = string;
 export type WorkspaceId = string;
 
 export interface LocalPeer {
+    peerId: PeerId;
     gardens: Partial<Record<Protocol, PeerGarden>>;
 }
 

@@ -13,15 +13,10 @@
   "types": "./build/index.d.ts",
   "scripts": {
     "clean": "rm -rf coverage .nyc_output build/*.js*",
-    "serve": "node build/transport-http-server.js",
-    "build": "node esbuild-client.js && node esbuild-server.js",
-    "build-tsc": "tsc --noEmit",
-    "start-server": "VERBOSE=true node build/http-server-demo.js",
-    "start-client": "VERBOSE=true node build/http-client-demo.js",
-    "start-local-demo": "VERBOSE=true node build/local-demo.js",
+    "build": "tsc",
     "main": "VERBOSE=true node build/main.js",
+    "clean-build-main": "yarn clean && yarn build && yarn main",
     "test": "tap -Rspecy --jobs=1 build/test/*.test.js",
-    "test-mini-rpc": "tap -Rspecy --jobs=1 build/test/mini-rpc.test.js",
     "test-coverage": "npm test -- --coverage-report=lcov",
     "prepublishOnly": "npm run clean && npm run build"
   },
